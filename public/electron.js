@@ -12,6 +12,7 @@ const isDev = require("electron-is-dev");
 const ENCRYPTED_FILE_EXTENSION = ".dbolt";
 const AES_256_GCM = "aes-256-gcm";
 const METADATA_LEN = 96;
+const PBKDF2_ITERATIONS = 100000;
 
 /***********
  * Utilities
@@ -61,7 +62,7 @@ function createDerivedKey(salt, encryptionKey) {
     return crypto.pbkdf2Sync(
         encryptionKey,
         salt,
-        10000,
+        PBKDF2_ITERATIONS,
         32, // This value is in bytes
         "sha512"
     );

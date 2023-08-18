@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import "./FileHeader.css";
 
 import "file-icons-js/css/style.css";
-import icons from "file-icons-js";
+import * as icons from "file-icons-js";
 
 export default class FileHeader extends Component {
 	render() {
